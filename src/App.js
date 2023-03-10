@@ -40,7 +40,7 @@ function App() {
       setDice(oldDice => oldDice.map(die => {
         return die.isHeld ? die : generateNewDie()
       }))
-    }else{
+    } else {
       setTenzies(false)
       setDice(allnewDice())
     }
@@ -63,14 +63,16 @@ function App() {
     />)
 
   return (
-    <main className="main-container">
-      {tenzies && <Confetti />}
-      <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
-      <div className="dice-container">
-        {diceElements}
-      </div>
-      <button onClick={rollDice} className="roll-dice">{tenzies ? "New Game" : "Roll Dice"}</button>
-    </main >
+    <div className="main-container">
+      <main>
+        {tenzies && <Confetti />}
+        <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+        <div className="dice-container">
+          {diceElements}
+        </div>
+        <button onClick={rollDice} className="roll-dice">{tenzies ? "New Game" : "Roll Dice"}</button>
+      </main >
+    </div>
   );
 }
 
